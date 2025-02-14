@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        telnyxClient = TelnyxClient(this)
+
         binding.buttonCallId.setOnClickListener {
             if (haveConnectionId) {
                 startCallSequence(connectionCreationResponse!!)
@@ -97,7 +99,6 @@ class MainActivity : AppCompatActivity() {
             ringBackTone = null,
             logLevel = LogLevel.ALL
         )
-        telnyxClient = TelnyxClient(this)
 
         telnyxClient?.connect(tokenConfig = tokenLoginConfig)
 
